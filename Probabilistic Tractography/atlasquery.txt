@@ -1,0 +1,31 @@
+for s in L_TPJ_L_PreC L_TPJ_L_ATL L_TPJ_L_VMPFC L_TPJ_L_DMPFC L_PreC_L_ATL L_PreC_L_VMPFC L_PreC_L_DMPFC L_ATL_L_VMPFC L_ATL_L_DMPFC L_VMPFC_L_DMPFC 
+do
+echo ${s} >> /path/combined_left.txt
+atlasquery -a "JHU White-Matter Tractography Atlas" -m /path/fdt_paths_sd_thr01_group/${s}.nii.gz >> /path/combined_left.txt
+echo . >> /path/combined_left.txt
+done
+
+wait
+
+for s in R_TPJ_R_PreC R_TPJ_R_ATL R_TPJ_R_VMPFC R_TPJ_R_DMPFC R_PreC_R_ATL R_PreC_R_VMPFC R_PreC_R_DMPFC R_ATL_R_VMPFC R_ATL_R_DMPFC R_VMPFC_R_DMPFC 
+do
+echo ${s} >> /path/combined_right.txt
+atlasquery -a "JHU White-Matter Tractography Atlas" -m /path/fdt_paths_sd_thr01_group/${s}.nii.gz >> /path/combined_right.txt
+echo . >> /path/combined_right.txt
+done
+
+for s in L_TPJ_L_PreC L_TPJ_L_ATL L_TPJ_L_VMPFC L_TPJ_L_DMPFC L_PreC_L_ATL L_PreC_L_VMPFC L_PreC_L_DMPFC L_ATL_L_VMPFC L_ATL_L_DMPFC L_VMPFC_L_DMPFC 
+do
+echo ${s} >> /path/combined_left.txt
+atlasquery -a "WM_superficial" -m /path/fdt_paths_sd_thr01_group/${s}.nii.gz >> /path/combined_left.txt
+echo . >> /path/combined_left.txt
+done
+
+wait
+
+for s in R_TPJ_R_PreC R_TPJ_R_ATL R_TPJ_R_VMPFC R_TPJ_R_DMPFC R_PreC_R_ATL R_PreC_R_VMPFC R_PreC_R_DMPFC R_ATL_R_VMPFC R_ATL_R_DMPFC R_VMPFC_R_DMPFC 
+do
+echo ${s} >> /path/combined_right.txt
+atlasquery -a "WM_superficial" -m /path/fdt_paths_sd_thr01_group/${s}.nii.gz >> /path/combined_right.txt
+echo . >> /path/combined_right.txt
+done
